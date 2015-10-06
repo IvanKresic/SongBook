@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html data-ng-app="app">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Upravljanje Mp3 datotekama i Playlistama</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Mp3 Datoteke", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Ivan Krešić - HRCloud Zadatak</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    
+    @RenderSection("scripts", required: false)
+    <script src="Scripts/angular.min.js"></script>
+    <script src="Scripts/angular-route.min.js"></script>
+    <script src="Scripts/angular-ui-router.min.js"></script>
+    <script src="FrontEnd/app/AppConfig/appConfig.js"></script>
+    <script src="FrontEnd/app/Playlist/playlistCtrl.js"></script>
+    <script src="FrontEnd/app/Mp3Files/mp3Ctrl.js"></script>
+    <script src="FrontEnd/app/Mp3File/mp3fileCtrl.js"></script>
+    <script src="FrontEnd/app/Factory/dataFactory.js"></script>
+    <script src="FrontEnd/app/Services/songInPlaylistFactory.js"></script>
+    
+    
+    
+</body>
+</html>

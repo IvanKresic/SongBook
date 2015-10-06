@@ -1,0 +1,29 @@
+Bok,
+
+zadatak je napraviti web aplikaciju za management popisa MP3 file-ova. 
+ 
+Popis funkcionalnosti koje aplikacija treba podrzavati:
+ 
+· Unos, uredjivanje i brisanje parametara MP3 file-a (naziv pjesme, izvodjac...)
+· Unos, uredjivanje i brisanje playlista
+· Dodavanje MP3 file-a u proizvoljan broj playlista
+· Pretraga svih file-ova po nazivu, izvodjacu i playlisti (pretraga treba biti izvedena na serveru)
+· Pregled podataka pojedinog unosa treba biti moguce bookmarkati (dodati u favorites) u browseru
+· Back i forward botuni browsera trebaju funkcionirati u cijeloj aplikaciji
+ 
+Funkcionalnosti koje nije potrebno podrzati:
+ 
+· Nije potrebno implementirati sustav za prijavu ili registraciju korisnika
+· Nije potrebno implemantirati nikakvu funkcionalnost vezanu za same fileove kao sto su upload i reprodukcija
+ 
+Tehnicki zahtjevi:
+ 
+· Naglasak neka bude na cistom, razumljivom i elegantnom dizajnu koda
+· Aplikacija treba biti izvedena kao single-page web application koja podatke dohvaca ajax pozivima
+· Na front-endu koristi AngularJS
+· Na back-endu koristi ASP.NET MVC
+· Podaci neka se spremaju u relacijsku bazu podataka
+· Za source code hosting koristi GIT na bitbucket.org servisu. Kreiraj novi repozitorij i dodaj korisnika aron_hrcloud kao admina. Repozitorij otvori odmah i pushaj commitove kako ih budes radio jer ne zelimo da se svi commitovi vide tek zadnji dan kada predas aplikaciju
+· Pri prvom pokretanju aplikacija bi trebala dodati testne podatke u bazu podataka
+ 
+Rok za predaju zadatka je 10 dana, znaci sljedeca nedjelja do kraja dana. 

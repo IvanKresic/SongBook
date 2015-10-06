@@ -1,0 +1,106 @@
+﻿<div class="row">
+    <div class="col-md-12">
+        <strong class="error">{{ error }}</strong>
+        <p data-ng-hide="addMode"><a data-ng-click="toggleAdd()" href="javascript:;" class="btn btn-primary">Dodaj Pjesmu</a></p>
+        <center>
+            <form name="newmp3file" data-ng-show="addMode" style="width:850px;margin:0px auto;">
+                <div class="form-group">
+                    <label for="naslovPjesme" class="col-sm-2 control-label">Naziv Pjesme:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="naslovPjesme" placeholder="Unesite naziv pjesme" data-ng-model="newmp3file.NaslovPjesme" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="izvodjac" class="col-sm-2 control-label">Izvođač:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="izvodjac" placeholder="Unesite izvođača" data-ng-model="newmp3file.Izvodjac" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="godinaIzdavanja" class="col-sm-2 control-label">Godina:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="godinaIzdavanja" placeholder="Unesite godinu izdavanja" data-ng-model="newmp3file.GodinaIzdavanja" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="trajanje" class="col-sm-2 control-label">Trajanje:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="trajanje" placeholder="Unesite vrijeme trajanja" data-ng-model="newmp3file.Trajanje" required />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="velicina" class="col-sm-2 control-label">Veličina:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="velicina" placeholder="Unesite veličinu u Mb" data-ng-model="newmp3file.Velicina" required />
+                    </div>
+                </div>
+                <br />
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <input type="submit" value="Add" data-ng-click="add()" data-ng-disabled="!newmp3file.$valid" class="btn btn-primary" />
+                        <input type="button" value="Cancel" data-ng-click="toggleAdd()" class="btn btn-primary" />
+                    </div>
+                </div>
+                <br />
+            </form>
+        </center>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <br />
+        <br />
+    </div>
+</div>
+<div style="text-align:center">
+    <center>
+        <table class="table table-striped" style="width:100%; margin-left:auto; margin-right:auto">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Naziv Pjesme</th>
+                    <th>Izvoðaè</th>
+                    <th>Godina izdavanja</th>
+                    <th>Trajanje</th>
+                    <th>Velièina</th>
+                    <th>Izbor</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr data-ng-repeat="item in Mp3Files">
+                    <td>
+                        <p data-ng-hide="item.editMode">{{ item.idPjesme }}</p>
+                        <input class="form-control" data-ng-show="item.editMode" type="text" data-ng-model="item.idPjesme" disabled />
+                    </td>
+                    <td>
+                        <a href="#playlist/{{playlistId}}/song/{{item.idPjesme}}"><p data-ng-hide="item.editMode">{{ item.naslovPjesme }}</p></a>
+                        <input class="form-control" data-ng-show="item.editMode" type="text" data-ng-model="item.naslovPjesme" />
+                    </td>
+                    <td>
+                        <p data-ng-hide="item.editMode">{{ item.izvodjac }}</p>
+                        <input class="form-control" data-ng-show="item.editMode" type="text" data-ng-model="item.izvodjac" />
+                    </td>
+                    <td>
+                        <p data-ng-hide="item.editMode">{{ item.godinaIzdavanja }}</p>
+                        <input class="form-control" data-ng-show="item.editMode" type="text" data-ng-model="item.godinaIzdavanja" />
+                    </td>
+                    <td>
+                        <p data-ng-hide="item.editMode">{{ item.trajanje }} min</p>
+                        <input class="form-control" data-ng-show="item.editMode" type="text" data-ng-model="item.trajanje" />
+                    </td>
+                    <td>
+                        <p data-ng-hide="item.editMode">{{ item.velicina }} Mb</p>
+                        <input class="form-control" data-ng-show="item.editMode" type="text" data-ng-model="item.velicina" />
+                    </td>
+                    <td>
+                        <p data-ng-hide="item.editMode"><a data-ng-click="toggleEdit(item)" href="javascript:;">Uredi</a> | <a data-ng-click="deleteSong(item)" href="javascript:;">Izbriši</a></p>
+                        <p data-ng-show="item.editMode"><a data-ng-click="save(item)" href="javascript:;">Spremi</a> | <a data-ng-click="toggleEdit(item)" href="javascript:;">Odustani</a></p>
+                    </td>
+                </tr>
+                <tr><td></td><td>{{newmp3file.NaslovPjesme}}</td><td>{{ newmp3file.Izvodjac }}</td><td>{{ newmp3file.GodinaIzdavanja }}</td><td>{{ newmp3file.Trajanje }}</td><td>{{ newmp3file.Velicina }}</td></tr>
+            </tbody>
+        </table>
+    </center>
+</div>

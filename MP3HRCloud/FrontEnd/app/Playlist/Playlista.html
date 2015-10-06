@@ -1,0 +1,33 @@
+﻿<div data-ng-controller="playlistCtrl">
+    <p data-ng-hide="addMode"><a data-ng-click="toggleAdd()" href="javascript:;" class="btn btn-primary">Dodaj Playlistu</a></p>
+    <form name="novaplaylista" data-ng-show="addMode" style="width:850px; margin:0px auto;">
+        <div class="form-group">
+            <label for="nazivPlayliste" class="col-sm-2 control-label">Naziv Playliste:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="nazivPlayliste" placeholder="Unesite naziv playliste" data-ng-model="novaplaylista.NazivPlayliste" required />
+            </div>
+            <div class="col-sm-offset-2 col-sm-10">
+                <input type="submit" value="Dodaj" data-ng-click="dodajPlaylistu()" data-ng-disabled="!novaplaylista.$valid" class="btn btn-primary" />
+                <input type="button" value="Odustani" data-ng-click="toggleAdd()" class="btn btn-primary" />
+            </div>
+        </div>
+    </form>
+    <div style="width:360px;margin:0 auto;"><input type="text" class="form-control" style="display:inline;width:80%;" placeholder="Unesite naziv playliste" data-ng-model="searchPlaylist"/><input type="submit" value="Pretraži" data-ng-click="searchForPlaylist()" class="btn btn-primary" style="margin-left:5px;"/></div>
+    <table class="table table-striped" style="margin-top:10px;" data-ng-repeat="item in Playliste">
+        <tr>
+            <td>
+                <a data-ng-click="getSongsInPlaylist(item)" href="#/playlist/{{item.idPlayliste}}"><p data-ng-hide="item.editMode">{{item.nazivPlayliste}}</p></a>
+                <input class="form-control" data-ng-show="item.editMode" type="text" data-ng-model="item.nazivPlayliste" />
+            </td>
+            <td style="text-align:right;">
+                <div>
+                    <p data-ng-hide="item.editMode"><a data-ng-click="toggleEditPlaylista(item)" href="javascript:;">Uredi</a> | <a data-ng-click="izbrisiplaylistu(item)" href="javascript:;">Izbriši</a></p>
+                    <p data-ng-show="item.editMode"><a data-ng-click="savePlaylista(item)" href="javascript:;">Spremi</a> | <a data-ng-click="toggleEditPlaylista(item)" href="javascript:;">Odustani</a></p>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <table>
+        <tr><td>{{novaplaylista.NazivPlayliste}}</td></tr>
+    </table>
+</div>

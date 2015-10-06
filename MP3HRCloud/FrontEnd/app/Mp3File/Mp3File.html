@@ -1,0 +1,34 @@
+﻿<div data-ng-controller="mp3fileCtrl">
+    <table class="table table-striped" style="width:100%; margin-left:auto; margin-right:auto; margin-top:50px; text-align:left;">
+        <tbody>
+            <tr style="text-align:left;">
+
+                <td>
+                    <p>{{ Mp3File.idPjesme }}</p>
+                </td>
+                <td>
+                    <p>{{ Mp3File.naslovPjesme }}</p>
+                </td>
+                <td>
+                    <p>{{ Mp3File.izvodjac }}</p>                    
+                </td>
+                <td>
+                    <p>{{ Mp3File.godinaIzdavanja }}</p>                   
+                </td>
+                <td>
+                    <p>{{ Mp3File.trajanje }} min</p>                    
+                </td>
+                <td>
+                    <p>{{ Mp3File.velicina }} Mb</p>
+                </td>
+                <td>
+                    <select class="form-control" ng-options="playlista.idPlayliste as playlista.nazivPlayliste for playlista in Playlists" ng-model="Mp3File.idPlayliste" data-ng-show="Mp3File.editMode"></select>
+                </td>
+                <td>
+                    <p data-ng-hide="Mp3File.editMode"><a data-ng-click="toggleEditPjesma(Mp3File)" href="javascript:;">Dodaj u drugu playlistu</a>
+                    <p data-ng-show="Mp3File.editMode"><a data-ng-click="saveUPlaylista(Mp3File)" href="javascript:;">Dodaj</a> | <a data-ng-click="toggleEditPjesma(Mp3File)" href="javascript:;">Odustani</a></p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
